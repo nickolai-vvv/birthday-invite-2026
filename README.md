@@ -55,6 +55,12 @@ WebGL-сцена загружается динамически на клиент
 - Приглашение, дата, ссылка на карту и переходы: `src/components/InvitationExperience.tsx`.
 - Мобильный интерфейс: `src/app/globals.css`.
 
+## Публикация на GitHub Pages
+
+В репозитории есть workflow `.github/workflows/deploy-pages.yml`. После push в `main` GitHub сам соберёт статическую версию и опубликует её.
+
+Откройте **Settings → Pages**, выберите **Source: GitHub Actions**, затем сделайте push в `main`. Адрес сайта: `https://nickolai-vvv.github.io/birthday-invite-2026/`.
+
 ## Git
 
 В репозитории хранятся исходники, статические ресурсы и lock-файл npm. Зависимости, сборки, локальные настройки, секреты и временные материалы из `work/` исключены через `.gitignore`. Секреты храните в `.env.local`; безопасные шаблоны можно добавлять в `.env.example`.
