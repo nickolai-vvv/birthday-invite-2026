@@ -11,6 +11,15 @@ import SceneLoading from "@/components/ui/SceneLoading";
 const RoadScene = dynamic(() => import("@/components/scene/RoadScene"), { ssr: false });
 
 export default function InvitationExperience() {
+  useEffect(()=>{
+    // Keep pointer clicks from focusing buttons and scrolling them into view.
+    // Keyboard focus and activation remain available.
+    const preventButtonFocus=(event:MouseEvent)=>{
+      if(event.target instanceof Element&&event.target.closest('button'))event.preventDefault();
+    };
+    document.addEventListener('mousedown',preventButtonFocus);
+    return ()=>document.removeEventListener('mousedown',preventButtonFocus);
+  },[]);
   const [progress, setProgress] = useState(0);
   const portraitTransition=useRef(false);
   const [portraitPending,setPortraitPending]=useState(false);

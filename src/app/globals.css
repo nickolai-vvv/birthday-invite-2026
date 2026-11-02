@@ -16,6 +16,16 @@ html{scrollbar-gutter:stable}.race-ui{backdrop-filter:none;animation:choice-in .
 .final-invite a{display:block;width:100%;padding:15px 18px;margin:24px 0 12px;background:#f0d3a1;color:#15222d;border-radius:9px;text-align:center;font-weight:700;box-sizing:border-box;transition:background .2s}.final-invite a:hover{background:#ffe3b5}.final-invite button{display:block;width:100%;padding:8px;background:transparent;color:#a5b3bf;font-size:12px;font-weight:400}.final-invite button:hover{color:#f1f3f5;text-decoration:underline}
 .touch-controls{display:none}html{overflow-x:hidden}button,a{-webkit-tap-highlight-color:transparent}.portrait-overlay article{max-height:65vh;overflow-y:auto;pointer-events:auto;overscroll-behavior:contain}@media(pointer:coarse){.keyboard-hud{display:none}.touch-controls{display:grid;position:fixed;z-index:12;left:max(14px,env(safe-area-inset-left));right:max(14px,env(safe-area-inset-right));bottom:max(18px,env(safe-area-inset-bottom));grid-template-columns:62px 62px 1fr 68px 68px;gap:10px;pointer-events:none}.touch-controls button{pointer-events:auto;touch-action:none;user-select:none;-webkit-user-select:none;height:62px;border:1px solid #a6bacb;border-radius:14px;background:linear-gradient(#415466,#202d38);box-shadow:0 5px #101923;color:#fff;font-size:16px;font-weight:700}.touch-controls .held{background:#487f88;transform:translateY(3px);box-shadow:0 2px #101923}.touch-KeyA{grid-column:1;grid-row:2}.touch-KeyD{grid-column:2;grid-row:2}.touch-KeyS{grid-column:4;grid-row:2}.touch-KeyW{grid-column:5;grid-row:2}.touch-ShiftLeft{grid-column:5;grid-row:1;background:#78613c!important}.instruments{bottom:calc(100px + env(safe-area-inset-bottom));left:12px}.dial{width:115px}.dial-small{width:85px}.minimap{right:12px;bottom:calc(180px + env(safe-area-inset-bottom));width:85px}.minimap svg{height:auto}.race-timer{top:calc(12px + env(safe-area-inset-top))}.race-ui{bottom:calc(25px + env(safe-area-inset-bottom));max-height:70dvh;overflow-y:auto}.portrait-next{min-height:48px}.final-invite a,.final-invite button{min-height:48px}}@media(max-width:650px){header{top:calc(16px + env(safe-area-inset-top));left:18px;font-size:10px}.caption{left:16px;right:16px;max-width:none;bottom:calc(25px + env(safe-area-inset-bottom))}.caption h1{font-size:32px}.portrait-overlay{display:block;background:linear-gradient(transparent 35%,#101820f5 65%)}.portrait-frame{position:absolute;left:50%;top:10dvh;transform:translateX(-50%);height:40dvh;width:64vw}.portrait-overlay article{position:absolute;top:53dvh;left:6vw;width:88vw;max-height:44dvh;padding-bottom:env(safe-area-inset-bottom);box-sizing:border-box}.portrait-overlay h2{font-size:27px;margin:8px 0}.portrait-overlay p{font-size:14px;line-height:1.45;margin:10px 0}.portrait-overlay small{font-size:10px}.final-invite{max-height:78dvh;overflow:auto;bottom:calc(15px + env(safe-area-inset-bottom))}.final-invite h2{font-size:28px}}@media(pointer:coarse) and (orientation:landscape){.instruments{bottom:90px}.dial{width:90px}.dial-small{width:65px}.minimap{bottom:100px;width:65px}.touch-controls{grid-template-columns:58px 58px 1fr 65px 65px}.touch-controls button{height:48px}.portrait-overlay article{max-height:80dvh;top:10dvh}.race-timer strong{font-size:25px}.race-ui{bottom:15px;padding:16px;width:min(540px,80vw)}.race-options{grid-template-columns:1fr 1fr}}
 
+.touch-controls,.touch-controls *{touch-action:none;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+
+/* Keep interactive controls away from the browser's bottom-edge gesture area. */
+@media(pointer:coarse){
+ .touch-controls{bottom:calc(48px + env(safe-area-inset-bottom))}
+ .touch-controls button{transform:none}
+ .portrait-overlay article{bottom:calc(48px + env(safe-area-inset-bottom))}
+ .portrait-next{touch-action:manipulation;-webkit-touch-callout:none;-webkit-user-select:none;user-select:none}
+}
+
 /* Collision actions stay clear; the impact star remains visible. */
 .race-hud-layer.is-crashed .instruments,.race-hud-layer.is-crashed .minimap{opacity:0;visibility:hidden;pointer-events:none}
 .race-ui{z-index:13}
@@ -25,22 +35,22 @@ html{scrollbar-gutter:stable}.race-ui{backdrop-filter:none;animation:choice-in .
 @media(max-width:650px) and (orientation:portrait){
  .portrait-overlay{background:none}
  .portrait-frame{top:12dvh;height:43dvh;width:72vw}
- .portrait-overlay article{top:auto;bottom:max(20px,env(safe-area-inset-bottom));left:5vw;width:90vw;max-width:none;max-height:calc(38dvh - env(safe-area-inset-bottom));padding:14px 18px;border:1px solid #e8edf21c;border-radius:18px;background:linear-gradient(135deg,#15232ce8,#15232cc9);box-shadow:0 8px 28px #0002;text-shadow:none}
+ .portrait-overlay article{top:auto;bottom:calc(48px + env(safe-area-inset-bottom));left:5vw;width:90vw;max-width:none;max-height:calc(38dvh - env(safe-area-inset-bottom));padding:14px 18px;border:1px solid #e8edf21c;border-radius:18px;background:linear-gradient(135deg,#15232ce8,#15232cc9);box-shadow:0 8px 28px #0002;text-shadow:none}
  .portrait-overlay h2{font-size:clamp(22px,5.5vw,26px);line-height:1.1;margin:6px 0}
  .portrait-overlay p{margin:8px 0 10px;font-size:13px;line-height:1.35}
  .portrait-next{background:#253641;border-color:#d5be895e;min-height:48px}
 }
 
 @media(pointer:coarse){
- .instruments{bottom:calc(88px + env(safe-area-inset-bottom))}
- .dial{width:160px}.dial-small{width:118px}
+ .instruments{left:6px;bottom:calc(112px + env(safe-area-inset-bottom))}
+ .dial{width:clamp(116px,34vw,136px)}.dial-small{width:clamp(86px,25vw,100px)}
  .touch-KeyA,.touch-KeyD,.touch-KeyS,.touch-KeyW{grid-row:1}
- .minimap{bottom:calc(103px + env(safe-area-inset-bottom))}
+ .minimap{bottom:calc(133px + env(safe-area-inset-bottom))}
 }
 @media(pointer:coarse) and (orientation:landscape){
- .instruments{bottom:calc(78px + env(safe-area-inset-bottom))}
- .dial{width:104px}.dial-small{width:76px}
- .minimap{bottom:calc(88px + env(safe-area-inset-bottom))}
+ .instruments{bottom:calc(98px + env(safe-area-inset-bottom))}
+ .dial{width:94px}.dial-small{width:70px}
+ .minimap{bottom:calc(118px + env(safe-area-inset-bottom))}
 }
 
 .final-invite .gift-note{font-size:14px;line-height:1.5;color:#d8e1e8;margin:18px 0 0}
