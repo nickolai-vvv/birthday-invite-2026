@@ -1,0 +1,3 @@
+"use client";
+import {useProgress} from '@react-three/drei';
+export default function SceneLoading(){const {progress,active,errors}=useProgress();return <div className="loading-screen" role="status" aria-live="polite"><div className="loading-mark">N-VVV</div><h1>{errors.length?'Не удалось загрузить сцену':'Готовимся к поездке'}</h1><p>{errors.length?'Проверь соединение и попробуй ещё раз.':active?'Загружаем машину, персонажей и текстуры…':'Подготавливаем сцену…'}</p><div className="loading-track"><i style={{width:`${active?Math.min(95,progress*.95):98}%`}}/></div><span>{active?`${Math.floor(progress*.95)}%`:'Почти готово'}</span>{errors.length>0&&<button onClick={()=>location.reload()}>Повторить</button>}</div>}

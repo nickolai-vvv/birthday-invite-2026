@@ -1,0 +1,27 @@
+{
+  "name": "birthday-invite-2026",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "build:pages": "cross-env GITHUB_PAGES=true NEXT_PUBLIC_BASE_PATH=/birthday-invite-2026 next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.0",
+    "@react-three/fiber": "^9.4.0",
+    "next": "16.4.4",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@types/three": "^0.180.0",
+    "typescript": "^5.9.3"
+  }
+}
