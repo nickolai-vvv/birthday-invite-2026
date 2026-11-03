@@ -31,6 +31,11 @@ html{scrollbar-gutter:stable}.race-ui{backdrop-filter:none;animation:choice-in .
 .race-ui{z-index:13}
 @media(max-width:650px){.race-ui{max-height:70dvh;overflow-y:auto;bottom:max(18px,env(safe-area-inset-bottom));width:calc(100% - 32px)}.race-ui h2{font-size:28px}.race-options button{min-height:64px}}
 
+.guest-absence-stamp{display:table;margin:14px 0 20px;padding:7px 13px;border:3px double #ff655f;border-radius:4px;color:#ff655f;font-size:17px;font-weight:900;letter-spacing:.12em;line-height:1.2;transform:rotate(-5deg);text-shadow:none;background:#a5242414}
+
+.guest-absence-stamp{animation:stamp-in .65s ease-out both;transform-origin:center}
+@keyframes stamp-in{0%{opacity:0;transform:scale(1.6) rotate(-15deg)}35%{opacity:1;transform:scale(.94) rotate(-5deg)}60%{transform:scale(1.04) rotate(-5deg)}100%{opacity:1;transform:scale(1) rotate(-5deg)}}
+@media(prefers-reduced-motion:reduce){.guest-absence-stamp{animation:none}}
 /* Mobile portraits keep the scene visible, with contrast only beneath the copy. */
 @media(max-width:650px) and (orientation:portrait){
  .portrait-overlay{background:none}
